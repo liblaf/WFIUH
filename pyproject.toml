@@ -9,18 +9,22 @@ tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
 [tool.poetry]
-name = "template"
+name = "WFIUH"
 version = "0.0.0"
-description = "Repository Template"
+description = "Curve fitting width function IUH (WFIUH) in Hydrology"
 authors = ["Qin Li <liblaf@outlook.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://liblaf.github.io/template/"
-repository = "https://github.com/liblaf/template"
-documentation = "https://liblaf.github.io/template/"
+homepage = "https://liblaf.github.io/WFIUH/"
+repository = "https://github.com/liblaf/WFIUH"
+documentation = "https://liblaf.github.io/WFIUH/"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pandas = "^1.5.1"
+numpy = "^1.23.4"
+scipy = "^1.9.3"
+rich = "^12.6.0"
 
 [tool.poetry.group.docs.dependencies]
 lxml = "^4.9.1"

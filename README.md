@@ -1,3 +1,3 @@
-# template
+# WFIUH
 
-Repository Template
+Curve fitting width function IUH (WFIUH) in Hydrology
