@@ -102,6 +102,9 @@ def main(
                 raise e
             except Exception as e:
                 live.console.log(e, style="logging.level.error")
+            else:
+                results = pd.DataFrame(rets)
+                results.to_csv(f"{model_name}.csv")
     return 0
 
 
