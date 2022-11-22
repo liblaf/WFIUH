@@ -11,6 +11,7 @@ import rich.live
 import rich.panel
 import rich.progress
 import scipy.optimize
+import sklearn.metrics
 
 from . import models
 
@@ -36,7 +37,8 @@ def curve_fitting(
     y = df["frequency"]
     res = scipy.optimize.curve_fit(f=f, xdata=x, ydata=y)
     popt, pcov = res
-    return {"filepath": filepath, "popt": popt}
+    r2_score = sklearn.metrics.r2_score(y_true=y, y_pred=f(x, *popt))
+    return {"filepath": filepath, "popt": popt, "r2_score": r2_score}
 
 
 def main(
