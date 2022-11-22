@@ -3,11 +3,14 @@ import glob
 import signal
 import sys
 import threading
+import typing
 
 import pandas as pd
+import rich.console
+import rich.live
+import rich.panel
 import rich.progress
 import scipy.optimize
-import scipy.stats
 
 from . import models
 
@@ -24,62 +27,81 @@ signal.signal(signal.SIGINT, handle_sigint)
 
 def curve_fitting(
     filepath: str,
-    f,
-    progress: rich.progress.Progress = rich.progress.Progress(),
-    task_id: rich.progress.TaskID = rich.progress.TaskID(0),
+    f: typing.Callable,
 ) -> dict | None:
     if interrupt_event.is_set():
         return None
-    try:
-        df = pd.read_csv(filepath)
-        x = df["flowTime"]
-        y = df["frequency"]
-        res = scipy.optimize.curve_fit(f=f, xdata=x, ydata=y)
-        popt, perr = res
-        progress.advance(task_id=task_id)
-        progress.console.log(f"{filepath} : popt = {popt}", style="bold bright_green")
-        return {"filepath": filepath, "popt": popt}
-    except:
-        progress.console.log(f"{filepath} Failed!", style="bold bright_red")
-        return None
+    df = pd.read_csv(filepath)
+    x = df["flowTime"]
+    y = df["frequency"]
+    res = scipy.optimize.curve_fit(f=f, xdata=x, ydata=y)
+    popt, pcov = res
+    return {"filepath": filepath, "popt": popt}
 
 
-def main(prefix: str = "2-sub-WFIUH_rescaled") -> int:
+def main(
+    prefix: str = "2-sub-WFIUH_rescaled",
+    model_names: list[str] = ["normal_gaussian", "polynomial"],
+) -> int:
     files = glob.glob(pathname=f"{prefix}/*.csv")
-    progress = rich.progress.Progress(
-        rich.progress.TextColumn(text_format="{task.description}", style="bold blue"),
+    overall_progress = rich.progress.Progress(
+        rich.progress.TextColumn(
+            text_format="{task.description}", style="logging.level.info"
+        ),
         rich.progress.BarColumn(),
+        rich.progress.TaskProgressColumn(),
+        rich.progress.MofNCompleteColumn(),
+        rich.progress.TimeElapsedColumn(),
+    )
+    models_progress = rich.progress.Progress(
+        rich.progress.TextColumn(
+            text_format="{task.description}", style="logging.level.info"
+        ),
+        rich.progress.BarColumn(),
+        rich.progress.TaskProgressColumn(),
         rich.progress.MofNCompleteColumn(),
         rich.progress.TimeElapsedColumn(),
         rich.progress.TimeRemainingColumn(),
     )
-    with progress:
-        task_id = progress.add_task(description="Progress", total=len(files))
-        with concurrent.futures.ThreadPoolExecutor() as pool:
-            futures: list[concurrent.futures.Future] = [
-                pool.submit(
-                    curve_fitting,
-                    filepath=filepath,
-                    f=models.f,
-                    progress=progress,
-                    task_id=task_id,
-                )
-                for filepath in files
-            ]
+    progress_group = rich.console.Group(
+        rich.panel.Panel(models_progress), rich.panel.Panel(overall_progress)
+    )
+    with rich.live.Live(progress_group) as live:
+        overview_task_id = overall_progress.add_task(description="Overall Progress")
+        for model_name in overall_progress.track(model_names, task_id=overview_task_id):
+            model_task_id = models_progress.add_task(
+                description=model_name, total=len(files)
+            )
             rets: list[dict] = []
-            for future in futures:
-                if interrupt_event.is_set():
-                    break
-                try:
-                    ret = future.result()
-                    if ret:
-                        rets.append(ret)
-                except:
-                    pass
-    results = pd.DataFrame(rets)
-    results.to_csv("results.csv")
-    if interrupt_event.is_set():
-        raise KeyboardInterrupt()
+            try:
+                f = getattr(models, model_name)
+                with concurrent.futures.ProcessPoolExecutor() as pool:
+                    futures: list[concurrent.futures.Future] = list(
+                        map(
+                            lambda filepath: pool.submit(
+                                curve_fitting, filepath=filepath, f=f
+                            ),
+                            files,
+                        )
+                    )
+                    for future in concurrent.futures.as_completed(futures):
+                        if interrupt_event.is_set():
+                            raise KeyboardInterrupt()
+                        try:
+                            ret = future.result()
+                            if ret:
+                                rets.append(ret)
+                                models_progress.advance(task_id=model_task_id)
+                        except KeyboardInterrupt as e:
+                            raise e
+                        except Exception as e:
+                            live.console.log(e, style="logging.level.error")
+            except KeyboardInterrupt as e:
+                results = pd.DataFrame(rets)
+                results.to_csv(f"{model_name}.csv")
+                raise e
+            except Exception as e:
+                live.console.log(e, style="logging.level.error")
     return 0
 
 
