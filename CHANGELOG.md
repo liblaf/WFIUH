@@ -1,3 +1,9 @@
+## 0.1.3 (2022-11-23)
+
+### Fix
+
+- append information to exception
+
 ## 0.1.2 (2022-11-23)
 
 ### Fix
