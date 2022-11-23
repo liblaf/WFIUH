@@ -1,8 +1,12 @@
-import numpy as np
+import scipy.stats
 
 
 def normal_gaussian(t, a, b):
-    return 1 / (b * np.sqrt(2 * np.pi)) * np.exp(-0.5 * ((t - a) / b) ** 2)
+    return scipy.stats.norm.pdf(x=t, loc=a, scale=b)
+
+
+def inverse_gaussian(t, a, b):
+    return scipy.stats.invgauss.pdf(x=t, mu=b / a, scale=a)
 
 
 def polynomial(t, a, b, c):

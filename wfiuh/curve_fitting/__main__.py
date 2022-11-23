@@ -15,7 +15,6 @@ import sklearn.metrics
 
 from . import models
 
-
 interrupt_event = threading.Event()
 
 
@@ -43,7 +42,7 @@ def curve_fitting(
 
 def main(
     prefix: str = "2-sub-WFIUH_rescaled",
-    model_names: list[str] = ["normal_gaussian", "polynomial"],
+    model_names: list[str] = ["normal_gaussian", "inverse_gaussian", "polynomial"],
 ) -> int:
     files = glob.glob(pathname=f"{prefix}/*.csv")
     overall_progress = rich.progress.Progress(
