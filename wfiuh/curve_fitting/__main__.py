@@ -31,13 +31,17 @@ def curve_fitting(
 ) -> dict | None:
     if interrupt_event.is_set():
         return None
-    df = pd.read_csv(filepath)
-    x = df["flowTime"]
-    y = df["frequency"]
-    res = scipy.optimize.curve_fit(f=f, xdata=x, ydata=y)
-    popt, pcov = res
-    r2_score = sklearn.metrics.r2_score(y_true=y, y_pred=f(x, *popt))
-    return {"filepath": filepath, "popt": popt, "r2_score": r2_score}
+    try:
+        df = pd.read_csv(filepath)
+        x = df["flowTime"]
+        y = df["frequency"]
+        res = scipy.optimize.curve_fit(f=f, xdata=x, ydata=y)
+    except RuntimeError as e:
+        raise type(e)(f"{filepath}: {e}")
+    else:
+        popt, pcov = res
+        r2_score = sklearn.metrics.r2_score(y_true=y, y_pred=f(x, *popt))
+        return {"filepath": filepath, "popt": popt, "r2_score": r2_score}
 
 
 def main(
@@ -96,13 +100,15 @@ def main(
                         except KeyboardInterrupt as e:
                             raise e
                         except Exception as e:
-                            live.console.log(e, style="logging.level.error")
+                            live.console.log(
+                                f"{model_name}:", e, style="logging.level.error"
+                            )
             except KeyboardInterrupt as e:
                 results = pd.DataFrame(rets)
                 results.to_csv(f"{model_name}.csv")
                 raise e
             except Exception as e:
-                live.console.log(e, style="logging.level.error")
+                live.console.log(f"{model_name}:", e, style="logging.level.error")
             else:
                 results = pd.DataFrame(rets)
                 results.to_csv(f"{model_name}.csv")
