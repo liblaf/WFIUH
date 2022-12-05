@@ -1,3 +1,9 @@
+## 0.1.4 (2022-12-05)
+
+### Refactor
+
+- **curve_fitting/pdf**: refactor file structure
+
 ## 0.1.3 (2022-11-23)
 
 ### Fix
