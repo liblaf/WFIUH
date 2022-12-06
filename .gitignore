@@ -176,3 +176,5 @@ cython_debug/
 
 # 2-sub-WFIUH_rescaled
 *.csv
+
+/results
