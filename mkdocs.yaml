@@ -1,6 +1,15 @@
 site_name: WFIUH
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -21,3 +30,11 @@ plugins:
 repo_url: https://github.com/liblaf/WFIUH
 repo_name: liblaf/WFIUH
 edit_uri: edit/main/docs
+
+nav:
+  - "Home":
+      - index.md
+  - "Parameters Distribution":
+      - param-dis/index.md
+      - param-dis/cdf.md
+      - param-dis/pdf.md
