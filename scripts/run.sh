@@ -22,9 +22,9 @@ function call() {
   "${@}"
 }
 
-call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/cdf/params" --func "cdf"
+call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/params/cdf" --func "cdf"
 echo
-call python -m wfiuh param-dis --input-dir "results/cdf/params" --output-dir "results/cdf/param-dis"
-call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/pdf/params" --func "pdf"
+call python -m wfiuh param-dis --input-dir "results/params/cdf" --output-dir "results/param-dis/cdf" --threshold 0.9
+call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/params/pdf" --func "pdf"
 echo
-call python -m wfiuh param-dis --input-dir "results/pdf/params" --output-dir "results/pdf/param-dis"
+call python -m wfiuh param-dis --input-dir "results/params/pdf" --output-dir "results/param-dis/pdf" --threshold 0.9

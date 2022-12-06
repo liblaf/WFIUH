@@ -47,7 +47,7 @@ def save_results(results: list[dict], filepath: str) -> None:
     "--input-dir", show_default=True, type=click.Path(), default="2-sub-WFIUH_rescaled"
 )
 @click.option(
-    "--output-dir", show_default=True, type=click.Path(), default="results/cdf/params"
+    "--output-dir", show_default=True, type=click.Path(), default="results/params/cdf"
 )
 @click.option(
     "--func",
@@ -58,7 +58,7 @@ def save_results(results: list[dict], filepath: str) -> None:
 @click.option("--verbose", is_flag=True, default=False)
 def main(
     input_dir: str = "2-sub-WFIUH_rescaled",
-    output_dir: str = "results/cdf/params",
+    output_dir: str = "results/params/cdf",
     models: list[Model] = [
         NormalGaussian(),
         InverseGaussian(),
