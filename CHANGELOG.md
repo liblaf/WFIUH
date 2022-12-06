@@ -1,3 +1,14 @@
+## 0.2.0 (2022-12-06)
+
+### Feat
+
+- **param-dis**: plot parameters distribution
+
+### Fix
+
+- change filepath
+- **curve-fitting**: add more models
+
 ## 0.1.4 (2022-12-05)
 
 ### Refactor
