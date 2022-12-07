@@ -7,7 +7,7 @@ import click
 import numpy as np
 import pandas as pd
 
-from ..logging import print, print_dict, print_series
+from ..log import print, print_dict, print_series
 from . import plot_params_distribution
 
 
