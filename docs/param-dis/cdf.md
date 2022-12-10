@@ -4,14 +4,22 @@ title: "CDF"
 
 R2 Score Threshold: 0.9
 
-| Model             | Number of Selected Catchments |
-| ----------------- | ----------------------------- |
-| Rational          | 11069 / 11069                 |
-| Inverse Gaussian  | 11062 / 11069                 |
-| Normal Gaussian   | 11055 / 11069                 |
-| Hoerl             | 10970 / 11069                 |
-| Polynomial        | 10546 / 11069                 |
-| Double Triangular | 363 / 11069                   |
+| Model              | Number of Selected Catchments |
+| ------------------ | ----------------------------- |
+| Weibull            | 11069 / 11069                 |
+| Rational           | 11069 / 11069                 |
+| InverseGaussian    | 11066 / 11069                 |
+| DoublePower        | 11066 / 11069                 |
+| Multistage         | 11065 / 11069                 |
+| NormalGaussian     | 11065 / 11069                 |
+| Gamma              | 11062 / 11069                 |
+| Frechet            | 11062 / 11069                 |
+| Logistic           | 11060 / 11069                 |
+| Hill               | 11059 / 11069                 |
+| ShiftedLogPearson3 | 11051 / 11069                 |
+| Hoerl              | 10970 / 11069                 |
+| Polynomial         | 5788 / 11069                  |
+| DoubleTriangular   | 363 / 11069                   |
 
 ## Normal Gaussian
 
@@ -55,7 +63,7 @@ R2 Score Threshold: 0.9
 
 ## Double Power
 
-![Double Power](https://cdn.liblaf.top/share/WFIUH/results/param-dis/cdf/Double Power.png)
+![Double Power](https://cdn.liblaf.top/share/WFIUH/results/param-dis/cdf/DoublePower.png)
 
 ## Hill
 

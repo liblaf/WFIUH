@@ -1,10 +1,18 @@
+import dataclasses
+
 import numpy as np
+import numpy.typing as npt
 import scipy.special
 
 from .typed import Model
 
 
+@dataclasses.dataclass(kw_only=True)
 class Beta(Model):
+    bounds: tuple[npt.ArrayLike, npt.ArrayLike] = dataclasses.field(
+        default=([1, 0], np.inf)
+    )
+
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
         return scipy.special.betainc(a, b, t)

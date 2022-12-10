@@ -27,7 +27,7 @@ def curve_fitting_numpy(
         sigma=model.sigma,
         bounds=model.bounds,
     )
-    r2_score = sklearn.metrics.r2_score(y_true=y, y_pred=model.forward(x, *popt))
+    r2_score = sklearn.metrics.r2_score(y_true=y, y_pred=f(x, *popt))
     return {**{chr(ord("a") + i): p for i, p in enumerate(popt)}, "r2_score": r2_score}
 
 
@@ -42,7 +42,7 @@ def curve_fitting_file(model: Model, filepath: str, func: str = "cdf") -> dict:
         if func == "cdf":
             y = y.cumsum()
         model.prepare(x=x, y=y)
-        results = curve_fitting_numpy(model=model, x=x, y=y)
+        results = curve_fitting_numpy(model=model, x=x, y=y, func=func)
         return {"id": id, **results}
     except Exception as e:
         raise type(e)(id, str(e))

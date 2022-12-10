@@ -1,6 +1,5 @@
 import concurrent.futures
 import glob
-import itertools
 import os
 import signal
 import sys
@@ -16,15 +15,22 @@ import rich.progress
 from . import curve_fitting_file
 from .models import (
     Beta,
+    DoublePower,
     DoubleTriangular,
+    Frechet,
     Gamma,
+    Hill,
     Hoerl,
     InverseGaussian,
+    Kumaraswamy,
+    Logistic,
     Model,
+    Multistage,
     NormalGaussian,
     Polynomial,
     Rational,
     ShiftedLogPearson3,
+    Weibull,
 )
 
 
@@ -66,6 +72,13 @@ def main(
         Rational(),
         ShiftedLogPearson3(),
         Gamma(),
+        Weibull(),
+        Frechet(),
+        Logistic(),
+        Multistage(),
+        DoublePower(),
+        Hill(),
+        Kumaraswamy(),
         Hoerl(),
         Beta(),
         DoubleTriangular(),

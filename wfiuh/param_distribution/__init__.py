@@ -9,6 +9,7 @@ def plot_param_distribution(
     plt.figure(dpi=600)
     sns.displot(data=data, x=x, kind=kind)
     plt.savefig(fname=fname)
+    plt.close()
 
 
 def plot_params_distribution(data: pd.DataFrame, fname: str, kind: str = "kde") -> None:
@@ -29,3 +30,4 @@ def plot_params_distribution(data: pd.DataFrame, fname: str, kind: str = "kde") 
         facet_kws={"sharex": False, "sharey": False},
     )
     plt.savefig(fname=fname)
+    plt.close()

@@ -2,21 +2,22 @@ import dataclasses
 
 import numpy as np
 import numpy.typing as npt
-import scipy.stats
 
 from .typed import Model
 
 
-@dataclasses.dataclass(init=True, kw_only=True)
-class NormalGaussian(Model):
+@dataclasses.dataclass(kw_only=True)
+class Frechet(Model):
     bounds: tuple[npt.ArrayLike, npt.ArrayLike] = dataclasses.field(
-        default=([-np.inf, 0], np.inf)
+        default=([0, 0], np.inf)
     )
 
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.cdf(x=t, loc=a, scale=b)
+        s = np.exp(-((t / b) ** -a))
+        return s
 
     @staticmethod
     def pdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.pdf(x=t, loc=a, scale=b)
+        u = a / b * (t / b) ** (-1 - a) * np.exp(-((t / b) ** (-a)))
+        return u

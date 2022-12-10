@@ -2,21 +2,22 @@ import dataclasses
 
 import numpy as np
 import numpy.typing as npt
-import scipy.stats
 
 from .typed import Model
 
 
-@dataclasses.dataclass(init=True, kw_only=True)
-class NormalGaussian(Model):
+@dataclasses.dataclass(kw_only=True)
+class Kumaraswamy(Model):
     bounds: tuple[npt.ArrayLike, npt.ArrayLike] = dataclasses.field(
-        default=([-np.inf, 0], np.inf)
+        default=([0, 0], np.inf)
     )
 
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.cdf(x=t, loc=a, scale=b)
+        s = 1 - (1 - t**a) ** b
+        return s
 
     @staticmethod
     def pdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.pdf(x=t, loc=a, scale=b)
+        u = a * b * t ** (a - 1) * (1 - t**a) ** (b - 1)
+        return u

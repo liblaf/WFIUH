@@ -7,16 +7,16 @@ import scipy.stats
 from .typed import Model
 
 
-@dataclasses.dataclass(init=True, kw_only=True)
-class NormalGaussian(Model):
+@dataclasses.dataclass(kw_only=True)
+class Weibull(Model):
     bounds: tuple[npt.ArrayLike, npt.ArrayLike] = dataclasses.field(
-        default=([-np.inf, 0], np.inf)
+        default=([0, 1], np.inf)
     )
 
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.cdf(x=t, loc=a, scale=b)
+        return scipy.stats.weibull_min.cdf(t, b, loc=0, scale=a)
 
     @staticmethod
     def pdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.stats.norm.pdf(x=t, loc=a, scale=b)
+        return scipy.stats.weibull_min.pdf(t, b, loc=0, scale=a)

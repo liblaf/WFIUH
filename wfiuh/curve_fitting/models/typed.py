@@ -9,7 +9,9 @@ import numpy.typing as npt
 class Model:
     p0: typing.Optional[npt.ArrayLike] = None
     sigma: typing.Optional[npt.ArrayLike] = None
-    bounds: tuple[npt.ArrayLike, npt.ArrayLike] = (-np.inf, np.inf)
+    bounds: tuple[npt.ArrayLike, npt.ArrayLike] = dataclasses.field(
+        default=(-np.inf, np.inf)
+    )
 
     @classmethod
     @property

@@ -4,11 +4,19 @@ title: "PDF"
 
 R2 Score Threshold: 0.9
 
-| Model      | Number of Selected Catchments |
-| ---------- | ----------------------------- |
-| Rational   | 6897 / 11069                  |
-| Hoerl      | 3524 / 11069                  |
-| Polynomial | 67 / 11069                    |
+| Model              | Number of Selected Catchments |
+| ------------------ | ----------------------------- |
+| ShiftedLogPearson3 | 329 / 11069                   |
+| Hill               | 260 / 11069                   |
+| Hoerl              | 125 / 11069                   |
+| InverseGaussian    | 117 / 11069                   |
+| Rational           | 24 / 11069                    |
+| DoublePower        | 17 / 11069                    |
+| Gamma              | 16 / 11069                    |
+| Weibull            | 16 / 11069                    |
+| Multistage         | 7 / 11069                     |
+| Polynomial         | 1 / 11069                     |
+| NormalGaussian     | 1 / 11069                     |
 
 ## Normal Gaussian
 

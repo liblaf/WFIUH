@@ -6,11 +6,13 @@ from .typed import Model
 
 
 @dataclasses.dataclass(kw_only=True)
-class Hoerl(Model):
+class Hill(Model):
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float, c: float) -> float | np.ndarray:
-        return a * b**t * t**c
+        s = a * t**b / (c**b + t**b)
+        return s
 
     @staticmethod
     def pdf(t: float | np.ndarray, a: float, b: float, c: float) -> float | np.ndarray:
-        return a * b**t * t ** (c - 1) * (np.log(b) * t + c)
+        u = a * b * c**b * t ** (b - 1) / (c**b + t**b) ** 2
+        return u

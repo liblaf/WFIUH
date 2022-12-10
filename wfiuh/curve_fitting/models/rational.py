@@ -1,8 +1,11 @@
+import dataclasses
+
 import numpy as np
 
 from .typed import Model
 
 
+@dataclasses.dataclass(kw_only=True)
 class Rational(Model):
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float, c: float) -> float | np.ndarray:
