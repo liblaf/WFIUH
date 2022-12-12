@@ -1,3 +1,9 @@
+## 0.2.2 (2022-12-12)
+
+### Fix
+
+- **param_distribution**: fix NaN threshold percentage
+
 ## 0.2.1 (2022-12-10)
 
 ### Fix
