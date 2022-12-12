@@ -50,12 +50,12 @@ def main(
     if threshold_percentage:
         threshold = float(np.percentile(a=r2_score["r2_score"], q=threshold_percentage))
         print_dict(
-            {"r2_score": threshold},
+            {"percentage": threshold_percentage, "r2_score": threshold},
             title="R2 Score Threshold",
         )
     else:
         print_dict(
-            {"percentage": threshold_percentage, "r2_score": threshold},
+            {"r2_score": threshold},
             title="R2 Score Threshold",
         )
     r2_score = r2_score[r2_score["r2_score"] > threshold]
