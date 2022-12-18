@@ -36,6 +36,8 @@ nav:
       - index.md
   - "Data Description":
       - data-description.md
+  - "Samples":
+      - samples.md
   - "Parameters Distribution":
       - param-dis/index.md
       - param-dis/cdf.md
