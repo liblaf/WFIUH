@@ -3,6 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+models=("Beta" "DoublePower" "DoubleTriangular" "Frechet" "Gamma" "Hill" "Hoerl" "InverseGaussian" "Kumaraswamy" "Logistic" "Multistage" "NormalGaussian" "Polynomial" "Rational" "ShiftedLogPearson3" "Weibull")
+
 function exists() {
   command -v "${@}" > /dev/null 2>&1
 }
@@ -57,3 +59,11 @@ call python entry_point.py param-dis \
   --output-dir "results/param-dis/pdf/pdf" \
   --key "pdf_r2_score" \
   --threshold 0.9
+
+for model in "${models[@]}"; do
+  call python entry_point.py best-sample \
+    --model "${model}" \
+    --param-path "results/params/cdf/${model}.csv" \
+    --output "results/samples/${model}.png" \
+    --threshold 0.9
+done
