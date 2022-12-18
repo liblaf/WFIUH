@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -38,8 +38,8 @@ function copy() {
   success "Copy: ${1} -> ${2}"
 }
 
-cd "$(git rev-parse --show-toplevel || echo .)"
-call poetry run build
+cd "$(git rev-parse --show-toplevel || pwd)"
+call bash scripts/build.sh
 files=(dist/*)
 for file in "${files[@]}"; do
   case "${file}" in
