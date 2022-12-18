@@ -34,6 +34,8 @@ edit_uri: edit/main/docs
 nav:
   - "Home":
       - index.md
+  - "Data Description":
+      - data-description.md
   - "Parameters Distribution":
       - param-dis/index.md
       - param-dis/cdf.md
