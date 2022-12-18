@@ -39,12 +39,12 @@ runs:
       shell: bash
       run: |
         source .venv/bin/activate
-        poetry run build
+        bash scripts/build.sh
         mv dist/* dist/$(poetry version | tr ' ' '-')-${{ runner.os }}-${{ runner.arch }}-py${{ steps.setup-python.outputs.python-version }}
     - if: ${{ runner.os == 'Windows' }}
       name: Build Artifacts
       shell: bash
       run: |
         source .venv/Scripts/activate
-        poetry run build
+        bash scripts/build.sh
         mv dist/* dist/$(poetry version | tr ' ' '-')-${{ runner.os }}-${{ runner.arch }}-py${{ steps.setup-python.outputs.python-version }}.exe
