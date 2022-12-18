@@ -1,3 +1,10 @@
+## 0.3.0 (2022-12-18)
+
+### Feat
+
+- add best sample
+- cross validation of CDF & PDF
+
 ## 0.2.2 (2022-12-12)
 
 ### Fix
