@@ -2,9 +2,11 @@ import dataclasses
 
 import numpy as np
 import numpy.typing as npt
-import scipy.special
+import scipy.stats
 
-from .typed import Model
+from . import Model
+
+SCALE = 150
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -15,17 +17,10 @@ class Beta(Model):
 
     @staticmethod
     def cdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        return scipy.special.betainc(a, b, t)
+        s = scipy.stats.beta.cdf(t, a, b, scale=SCALE)
+        return s
 
     @staticmethod
     def pdf(t: float | np.ndarray, a: float, b: float) -> float | np.ndarray:
-        u = t ** (a - 1) * (1 - t) ** (b - 1) / scipy.special.beta(a, b)
-        if isinstance(u, np.ndarray):
-            u[~np.isnan(u)] = 0
-        else:
-            u = 0 if np.isnan(u) else u
+        u = scipy.stats.beta.pdf(t, a, b, scale=SCALE)
         return u
-
-    def prepare(self, x: np.ndarray, y: np.ndarray) -> None:
-        self.sigma = np.ones_like(x)
-        self.sigma[[0, -1]] = 0.01

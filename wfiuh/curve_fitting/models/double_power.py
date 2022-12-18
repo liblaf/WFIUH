@@ -3,7 +3,7 @@ import dataclasses
 import numpy as np
 import numpy.typing as npt
 
-from .typed import Model
+from . import Model
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -22,6 +22,9 @@ class DoublePower(Model):
         u = (b * c / a) * (1 - t / a) ** (b - 1) * (1 - (1 - t / a) ** b) ** (c - 1)
         return u
 
-    def prepare(self, x: np.ndarray, y: np.ndarray) -> None:
+    def prepare(
+        self, x: np.ndarray, y: np.ndarray, func: str = "cdf"
+    ) -> tuple[np.ndarray, np.ndarray]:
         self.p0 = [x.max() + 10, 2.0, 2.0]
         self.bounds = ([x.max(), 1.0, 1.0], np.inf)
+        return x, y

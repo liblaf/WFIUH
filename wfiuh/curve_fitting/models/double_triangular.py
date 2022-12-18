@@ -3,7 +3,7 @@ import dataclasses
 import numpy as np
 import numpy.typing as npt
 
-from .typed import Model
+from . import Model
 
 
 @dataclasses.dataclass(kw_only=True)
@@ -42,6 +42,9 @@ class DoubleTriangular(Model):
         else:
             return kernel(t)
 
-    def prepare(self, x: np.ndarray, y: np.ndarray) -> None:
+    def prepare(
+        self, x: np.ndarray, y: np.ndarray, func: str = "cdf"
+    ) -> tuple[np.ndarray, np.ndarray]:
         self.p0 = [x.max() + 10, 0.5]
         self.bounds = ([x.max(), 0], [np.inf, 1])
+        return x, y

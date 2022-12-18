@@ -22,9 +22,38 @@ function call() {
   "${@}"
 }
 
-call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/params/cdf" --func "cdf"
+call python entry_point.py curve-fitting \
+  --input-dir "2-sub-WFIUH_rescaled" \
+  --output-dir "results/params/cdf" \
+  --fit cdf
 echo
-call python -m wfiuh param-dis --input-dir "results/params/cdf" --output-dir "results/param-dis/cdf" --threshold 0.9
-call python -m wfiuh curve-fitting --input-dir "2-sub-WFIUH_rescaled" --output-dir "results/params/pdf" --func "pdf"
+
+call python entry_point.py curve-fitting \
+  --input-dir "2-sub-WFIUH_rescaled" \
+  --output-dir "results/params/pdf" \
+  --fit pdf
 echo
-call python -m wfiuh param-dis --input-dir "results/params/pdf" --output-dir "results/param-dis/pdf" --threshold 0.9
+
+call python entry_point.py param-dis \
+  --input-dir "results/params/cdf" \
+  --output-dir "results/param-dis/cdf/cdf" \
+  --key "cdf_r2_score" \
+  --threshold 0.9
+
+call python entry_point.py param-dis \
+  --input-dir "results/params/cdf" \
+  --output-dir "results/param-dis/cdf/pdf" \
+  --key "pdf_r2_score" \
+  --threshold 0.9
+
+call python entry_point.py param-dis \
+  --input-dir "results/params/pdf" \
+  --output-dir "results/param-dis/pdf/cdf" \
+  --key "cdf_r2_score" \
+  --threshold 0.9
+
+call python entry_point.py param-dis \
+  --input-dir "results/params/pdf" \
+  --output-dir "results/param-dis/pdf/pdf" \
+  --key "pdf_r2_score" \
+  --threshold 0.9

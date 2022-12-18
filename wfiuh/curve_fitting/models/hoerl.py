@@ -2,7 +2,7 @@ import dataclasses
 
 import numpy as np
 
-from .typed import Model
+from . import Model
 
 
 @dataclasses.dataclass(kw_only=True)

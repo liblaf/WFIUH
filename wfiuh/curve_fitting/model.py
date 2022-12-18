@@ -4,6 +4,8 @@ import typing
 import numpy as np
 import numpy.typing as npt
 
+FUNCTIONS = ["cdf", "pdf"]
+
 
 @dataclasses.dataclass(kw_only=True)
 class Model:
@@ -37,5 +39,16 @@ class Model:
         else:
             raise NotImplementedError()
 
-    def prepare(self, x: np.ndarray, y: np.ndarray) -> None:
-        pass
+    @classmethod
+    def select(cls, func: str = "cdf"):
+        if func == "cdf":
+            return cls.cdf
+        elif func == "pdf":
+            return cls.pdf
+        else:
+            raise NotImplementedError()
+
+    def prepare(
+        self, x: np.ndarray, y: np.ndarray, func: str = "cdf"
+    ) -> tuple[np.ndarray, np.ndarray]:
+        return x, y

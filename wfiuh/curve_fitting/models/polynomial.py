@@ -3,7 +3,7 @@ import dataclasses
 import numpy as np
 import numpy.typing as npt
 
-from .typed import Model
+from . import Model
 
 
 @dataclasses.dataclass(kw_only=True)
