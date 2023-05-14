@@ -25,67 +25,67 @@ CDF R2 Score Threshold: 0.9
 
 ### Normal Gaussian
 
-![Normal Gaussian](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/NormalGaussian.png)
+![Normal Gaussian](/results/param-dis/pdf/cdf/NormalGaussian.png)
 
 ### Inverse Gaussian
 
-![Inverse Gaussian](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/InverseGaussian.png)
+![Inverse Gaussian](/results/param-dis/pdf/cdf/InverseGaussian.png)
 
 ### Polynomial
 
-![Polynomial](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Polynomial.png)
+![Polynomial](/results/param-dis/pdf/cdf/Polynomial.png)
 
 ### Rational
 
-![Rational](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Rational.png)
+![Rational](/results/param-dis/pdf/cdf/Rational.png)
 
 ### Shifted Log Pearson III
 
-![Shifted Log Pearson III](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/ShiftedLogPearson3.png)
+![Shifted Log Pearson III](/results/param-dis/pdf/cdf/ShiftedLogPearson3.png)
 
 ### Gamma
 
-![Gamma](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Gamma.png)
+![Gamma](/results/param-dis/pdf/cdf/Gamma.png)
 
 ### Weibull
 
-![Weibull](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Weibull.png)
+![Weibull](/results/param-dis/pdf/cdf/Weibull.png)
 
 ### Frechet
 
-![Frechet](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Frechet.png)
+![Frechet](/results/param-dis/pdf/cdf/Frechet.png)
 
 ### Logistic
 
-![Logistic](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Logistic.png)
+![Logistic](/results/param-dis/pdf/cdf/Logistic.png)
 
 ### Multistage
 
-![Multistage](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Multistage.png)
+![Multistage](/results/param-dis/pdf/cdf/Multistage.png)
 
 ### Double Power
 
-![Double Power](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/DoublePower.png)
+![Double Power](/results/param-dis/pdf/cdf/DoublePower.png)
 
 ### Hill
 
-![Hill](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Hill.png)
+![Hill](/results/param-dis/pdf/cdf/Hill.png)
 
 ### Kumaraswamy
 
-![Kumaraswamy](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Kumaraswamy.png)
+![Kumaraswamy](/results/param-dis/pdf/cdf/Kumaraswamy.png)
 
 ### Hoerl
 
-![Hoerl](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Hoerl.png)
+![Hoerl](/results/param-dis/pdf/cdf/Hoerl.png)
 
 ### Beta
 
-![Beta](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/Beta.png)
+![Beta](/results/param-dis/pdf/cdf/Beta.png)
 
 ### Double Triangular
 
-![Double Triangular](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/cdf/DoubleTriangular.png)
+![Double Triangular](/results/param-dis/pdf/cdf/DoubleTriangular.png)
 
 ## Filter by PDF R2 Score
 
@@ -110,64 +110,64 @@ PDF R2 Score Threshold: 0.9
 
 ### Normal Gaussian
 
-![Normal Gaussian](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/NormalGaussian.png)
+![Normal Gaussian](/results/param-dis/pdf/pdf/NormalGaussian.png)
 
 ### Inverse Gaussian
 
-![Inverse Gaussian](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/InverseGaussian.png)
+![Inverse Gaussian](/results/param-dis/pdf/pdf/InverseGaussian.png)
 
 ### Polynomial
 
-![Polynomial](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Polynomial.png)
+![Polynomial](/results/param-dis/pdf/pdf/Polynomial.png)
 
 ### Rational
 
-![Rational](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Rational.png)
+![Rational](/results/param-dis/pdf/pdf/Rational.png)
 
 ### Shifted Log Pearson III
 
-![Shifted Log Pearson III](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/ShiftedLogPearson3.png)
+![Shifted Log Pearson III](/results/param-dis/pdf/pdf/ShiftedLogPearson3.png)
 
 ### Gamma
 
-![Gamma](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Gamma.png)
+![Gamma](/results/param-dis/pdf/pdf/Gamma.png)
 
 ### Weibull
 
-![Weibull](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Weibull.png)
+![Weibull](/results/param-dis/pdf/pdf/Weibull.png)
 
 ### Frechet
 
-![Frechet](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Frechet.png)
+![Frechet](/results/param-dis/pdf/pdf/Frechet.png)
 
 ### Logistic
 
-![Logistic](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Logistic.png)
+![Logistic](/results/param-dis/pdf/pdf/Logistic.png)
 
 ### Multistage
 
-![Multistage](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Multistage.png)
+![Multistage](/results/param-dis/pdf/pdf/Multistage.png)
 
 ### Double Power
 
-![Double Power](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/DoublePower.png)
+![Double Power](/results/param-dis/pdf/pdf/DoublePower.png)
 
 ### Hill
 
-![Hill](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Hill.png)
+![Hill](/results/param-dis/pdf/pdf/Hill.png)
 
 ### Kumaraswamy
 
-![Kumaraswamy](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Kumaraswamy.png)
+![Kumaraswamy](/results/param-dis/pdf/pdf/Kumaraswamy.png)
 
 ### Hoerl
 
-![Hoerl](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Hoerl.png)
+![Hoerl](/results/param-dis/pdf/pdf/Hoerl.png)
 
 ### Beta
 
-![Beta](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/Beta.png)
+![Beta](/results/param-dis/pdf/pdf/Beta.png)
 
 ### Double Triangular
 
-![Double Triangular](https://cdn.liblaf.top/share/WFIUH/results/param-dis/pdf/pdf/DoubleTriangular.png)
+![Double Triangular](/results/param-dis/pdf/pdf/DoubleTriangular.png)
