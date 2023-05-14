@@ -2,7 +2,7 @@
 
 Curve fitting width function IUH (WFIUH) in Hydrology
 
-Results can be found [here](https://drive.liblaf.top/share/WFIUH/results/).
+Results can be found [here](results).
 
 ## CDF
 

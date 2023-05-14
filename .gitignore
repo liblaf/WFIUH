@@ -164,17 +164,3 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
-
-# 1-shapefile
-*.dbf
-*.prj
-*.sbn
-*.sbx
-*.shp
-*.shp.xml
-*.shx
-
-# 2-sub-WFIUH_rescaled
-*.csv
-
-/results
